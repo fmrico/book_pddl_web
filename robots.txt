@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fmrico.github.io/book_pddl_web/sitemap.xml

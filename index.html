@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Planning and PDDL — Free PDDL Book: Tutorial, Documentation and Examples</title>
+  <meta name="description" content="Planning and PDDL is a free university textbook on the Planning Domain Definition Language: PDDL 1.2, 2.1, 2.2, 3.0, 3.1 and PDDL+, with hundreds of tested PDDL examples, a modeling method, exercises with solutions and lecture slides. Free PDF in English and Spanish." />
+  <meta name="keywords" content="PDDL, PDDL book, PDDL tutorial, PDDL documentation, PDDL examples, PDDL domain, PDDL problem, Planning Domain Definition Language, AI planning, automated planning, STRIPS, PDDL 2.1, PDDL 2.2, PDDL 3, PDDL 3.1, PDDL+, temporal planning, numeric planning, durative actions, preferences, processes and events, Kairos planner, PlanSys2, lecture slides" />
+  <meta name="author" content="Francisco Martín Rico" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0b2d4a" />
+
+  <link rel="canonical" href="https://fmrico.github.io/book_pddl_web/" />
+  <link rel="alternate" hreflang="en" href="https://fmrico.github.io/book_pddl_web/" />
+  <link rel="alternate" hreflang="es" href="https://fmrico.github.io/book_pddl_web/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://fmrico.github.io/book_pddl_web/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/favicon-180.png" />
+
+  <meta property="og:type" content="book" />
+  <meta property="og:site_name" content="Planning and PDDL" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:title" content="Planning and PDDL — Free PDDL Book: Tutorial, Documentation and Examples" />
+  <meta property="og:description" content="Planning and PDDL is a free university textbook on the Planning Domain Definition Language: PDDL 1.2, 2.1, 2.2, 3.0, 3.1 and PDDL+, with hundreds of tested PDDL examples, a modeling method, exercises with solutions and lecture slides. Free PDF in English and Spanish." />
+  <meta property="og:url" content="https://fmrico.github.io/book_pddl_web/" />
+  <meta property="og:image" content="https://fmrico.github.io/book_pddl_web/img/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cover of the book Planning and PDDL" />
+  <meta property="book:author" content="Francisco Martín Rico" />
+  <meta property="book:release_date" content="2026" />
+  <meta property="book:tag" content="PDDL" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Planning and PDDL — Free PDDL Book: Tutorial, Documentation and Examples" />
+  <meta name="twitter:description" content="Planning and PDDL is a free university textbook on the Planning Domain Definition Language: PDDL 1.2, 2.1, 2.2, 3.0, 3.1 and PDDL+, with hundreds of tested PDDL examples, a modeling method, exercises with solutions and lecture slides. Free PDF in English and Spanish." />
+  <meta name="twitter:image" content="https://fmrico.github.io/book_pddl_web/img/social-card.png" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://fmrico.github.io/book_pddl_web/#website",
+      "url": "https://fmrico.github.io/book_pddl_web/",
+      "name": "Planning and PDDL",
+      "alternateName": [
+        "PDDL book",
+        "Planificación y PDDL"
+      ],
+      "inLanguage": [
+        "en",
+        "es"
+      ]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://fmrico.github.io/book_pddl_web/#book",
+      "name": "Planning and PDDL",
+      "alternateName": "PDDL book",
+      "headline": "Modeling problems for automated planners, from PDDL 1.2 to PDDL+",
+      "url": "https://fmrico.github.io/book_pddl_web/",
+      "image": "https://fmrico.github.io/book_pddl_web/img/en/planning-and-pddl-cover.png",
+      "description": "Planning and PDDL is a free university textbook on the Planning Domain Definition Language: PDDL 1.2, 2.1, 2.2, 3.0, 3.1 and PDDL+, with hundreds of tested PDDL examples, a modeling method, exercises with solutions and lecture slides. Free PDF in English and Spanish.",
+      "inLanguage": "en",
+      "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 627,
+      "version": "0.1.0",
+      "datePublished": "2026",
+      "dateModified": "2026-11-21",
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "encodingFormat": "application/pdf",
+      "keywords": "PDDL, PDDL book, PDDL tutorial, PDDL documentation, PDDL examples, PDDL domain, PDDL problem, Planning Domain Definition Language, AI planning, automated planning, STRIPS, PDDL 2.1, PDDL 2.2, PDDL 3, PDDL 3.1, PDDL+, temporal planning, numeric planning, durative actions, preferences, processes and events, Kairos planner, PlanSys2, lecture slides",
+      "author": {
+        "@type": "Person",
+        "name": "Francisco Martín Rico",
+        "url": "https://servicios.urjc.es/pdi/ver/francisco.rico",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Universidad Rey Juan Carlos"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Intelligent Robotics Lab",
+        "url": "https://intelligentroboticslab.gsyc.urjc.es/"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "PDDL"
+        },
+        {
+          "@type": "Thing",
+          "name": "Planning Domain Definition Language"
+        },
+        {
+          "@type": "Thing",
+          "name": "Automated planning"
+        },
+        {
+          "@type": "Thing",
+          "name": "Artificial intelligence"
+        },
+        {
+          "@type": "Thing",
+          "name": "PDDL+"
+        }
+      ],
+      "workTranslation": {
+        "@id": "https://fmrico.github.io/book_pddl_web/es/#book"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://fmrico.github.io/book_pddl_web/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is PDDL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PDDL, the Planning Domain Definition Language, is the standard language to describe planning problems: a domain with types, predicates and actions, and a problem with objects, an initial state and a goal. Planners read PDDL and return plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which versions of PDDL does the book cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All of them: PDDL 1.2 (STRIPS, types, ADL), PDDL 2.1 (numeric fluents, metrics, durative actions), PDDL 2.2 (derived predicates, timed initial literals), PDDL 3.0 (preferences and trajectory constraints), PDDL 3.1 (object fluents, action costs) and PDDL+ (processes and events)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the book free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The PDF of the book and the lecture slides are free to download and share under the CC BY-NC-ND 4.0 license."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there PDDL examples?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hundreds. Every domain and problem printed in the book is a tested file, and every plan shown was produced and validated by the Kairos planner. Every chapter has exercises with solutions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which planner do the examples use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kairos, an open-source planner that supports all of PDDL up to PDDL+. The models are standard PDDL and run with other planners where they support the features used."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a Spanish version?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, a faithful translation: Planificación y PDDL, with its slides, on the Spanish page of this site."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <img src="img/logo_book.png" alt="Planning and PDDL" width="96" height="64" />
+      <div>
+        <div class="header-title">Planning and PDDL</div>
+        <div class="header-subtitle">A free PDDL book · Intelligent Robotics Lab · URJC</div>
+      </div>
+    </div>
+    <a class="lang-switch" href="es/" hreflang="es" lang="es">
+      Leer en español <span class="lang-current">· English</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="book-cover-wrapper">
+      <a class="book-cover-link" href="pdf/en/planning-and-pddl-book.pdf" download="planning-and-pddl-book.pdf">
+        <img src="img/en/planning-and-pddl-cover.png" alt="Cover of the book Planning and PDDL" width="600" height="849" />
+      </a>
+      <p class="book-cover-hint">&#8595; Click the cover to download the PDF</p>
+    </div>
+
+    <div class="hero-info">
+      <h1>Planning and PDDL</h1>
+      <p class="subtitle">Modeling problems for automated planners, from PDDL 1.2 to PDDL+</p>
+      <dl class="book-meta">
+        <dt>Author</dt>
+        <dd><a class="author-link" href="https://servicios.urjc.es/pdi/ver/francisco.rico" target="_blank" rel="noopener">Francisco Martín Rico</a></dd>
+        <dt>Version</dt>
+        <dd>v0.1.0</dd>
+        <dt>Publisher</dt>
+        <dd>Intelligent Robotics Lab, URJC</dd>
+        <dt>Language</dt>
+        <dd>English (also in <a href="es/">Spanish</a>)</dd>
+        <dt>Pages</dt>
+        <dd>627</dd>
+        <dt>License</dt>
+        <dd><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a></dd>
+      </dl>
+      <p class="hero-desc">A planner receives a description of a situation, of what can be done in it and of what is wanted, and answers with a sequence of actions that leads from one to the other. The description is written in <strong>PDDL</strong>, the Planning Domain Definition Language. This book teaches the whole language, from PDDL&nbsp;1.2 to PDDL+, and above all how to <strong>model</strong>: how to go from a situation described in words to a PDDL model that a planner solves well, and how to choose among the alternatives. Every domain and problem in the book is a tested file, and every plan shown was produced and validated by a planner.</p>
+      <div class="hero-actions">
+        <a class="button" href="pdf/en/planning-and-pddl-book.pdf" download="planning-and-pddl-book.pdf">&#8595;&nbsp; Download the book (PDF)</a>
+        <a class="button button-secondary" href="#slides">Lecture slides</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="what-is-pddl">
+    <h2>What is PDDL?</h2>
+    <p>PDDL (Planning Domain Definition Language) is the standard language of automated planning. A PDDL model has two parts: a <strong>domain</strong>, with the types of objects, the predicates that describe a state and the actions with their preconditions and effects; and a <strong>problem</strong>, with the objects, the initial state and the goal. A planner reads both and returns a plan. PDDL was born in 1998 as the common language of the first International Planning Competition (IPC), and has grown since then with numbers, time, preferences and continuous change.</p>
+  </section>
+
+  <section id="versions">
+    <h2>Every version of PDDL, from 1.2 to PDDL+</h2>
+    <p class="section-intro">The book walks the whole language in the order it grew, from the simplest model that a planner can solve to hybrid systems.</p>
+    <div class="table-wrap">
+      <table class="versions">
+        <thead><tr><th>Version</th><th>Year</th><th>What it adds</th><th>Chapters</th></tr></thead>
+        <tbody>
+          <tr><td>PDDL 1.2</td><td>1998</td><td>Actions with preconditions and effects; types; negation, disjunction and quantifiers; conditional effects</td><td>2–7</td></tr>
+          <tr><td>PDDL 2.1</td><td>2002</td><td>Numeric fluents; metrics of plan quality; durative actions; continuous change</td><td>8–12</td></tr>
+          <tr><td>PDDL 2.2</td><td>2004</td><td>Derived predicates; timed initial literals</td><td>13</td></tr>
+          <tr><td>PDDL 3.0</td><td>2006</td><td>Preferences (soft goals); constraints on the whole plan</td><td>14–15</td></tr>
+          <tr><td>PDDL 3.1</td><td>2008</td><td>Object fluents; action costs</td><td>9, 16</td></tr>
+          <tr><td>PDDL+</td><td>2006</td><td>Processes and events: a world that changes by itself</td><td>17–18</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2>The MODEL method</h2>
+    <p class="section-intro">The book builds a modeling method chapter by chapter. Each new feature of the language adds questions to ask of a problem, ways to encode it and ways to get it wrong. Alternatives are compared with five criteria: fidelity, size, guidance, clarity and portability.</p>
+    <ol class="method-steps">
+      <li class="card"><span class="letter">M</span><strong>Map the situation</strong><p>What is the problem, who acts, what counts as solved.</p></li>
+      <li class="card"><span class="letter">O</span><strong>Objects and state</strong><p>Which things exist and what the planner must know about them.</p></li>
+      <li class="card"><span class="letter">D</span><strong>Dynamics</strong><p>What can be done or can happen, when, and what it changes.</p></li>
+      <li class="card"><span class="letter">E</span><strong>Exercise the model</strong><p>Run it with a planner: trivial, typical, impossible and cheating problems.</p></li>
+      <li class="card"><span class="letter">L</span><strong>Look again</strong><p>Which other encoding would do, and which is better here.</p></li>
+    </ol>
+  </section>
+
+  <section id="contents">
+    <h2>Contents</h2>
+    <p class="section-intro">Twenty chapters in seven parts, for a one-semester university course on AI planning. Every chapter ends with exercises; the solutions are in an appendix.</p>
+    <div class="parts-grid">
+      <div class="card">
+        <h3>Part I — Planning and models</h3>
+        <ul>
+          <li>1. Planning: deciding before acting</li>
+          <li>2. A first model: STRIPS</li>
+          <li>3. What a planner does with your model</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Part II — Classical planning: PDDL 1.2</h3>
+        <ul>
+          <li>4. Types, constants and equality</li>
+          <li>5. Richer conditions</li>
+          <li>6. Richer effects</li>
+          <li>7. Modeling classical problems: patterns and choices</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Part III — Numbers: PDDL 2.1</h3>
+        <ul>
+          <li>8. Numeric fluents</li>
+          <li>9. Plan quality: metrics and action costs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Part IV — Time: PDDL 2.1 and 2.2</h3>
+        <ul>
+          <li>10. Durative actions</li>
+          <li>11. Coordination in time</li>
+          <li>12. Continuous change</li>
+          <li>13. Derived predicates and a world with a calendar</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Part V — Preferences and constraints: PDDL 3</h3>
+        <ul>
+          <li>14. Soft goals and preferences</li>
+          <li>15. Constraints on the whole plan</li>
+          <li>16. Object fluents</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Part VI — Hybrid systems: PDDL+</h3>
+        <ul>
+          <li>17. Processes and events</li>
+          <li>18. Modeling hybrid systems</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Part VII — The method at work</h3>
+        <ul>
+          <li>19. The MODEL method, complete</li>
+          <li>20. Case study: a robot mission from story to execution</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Appendices</h3>
+        <ul>
+          <li>A. Kairos, the planner of the examples</li>
+          <li>B. PDDL quick reference</li>
+          <li>C. Solutions to the exercises</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="example">
+    <h2>A PDDL example</h2>
+    <p class="section-intro">The running example of the book: a courier robot on a hospital floor. This is the typed STRIPS domain of Chapter 4, a problem that asks for medicines in ward A, and the plan that the planner returns.</p>
+    <div class="code-grid">
+      <div class="card code-block wide">
+        <h3>Domain: courier-domain.pddl</h3>
+        <pre><code class="language-pddl">(define (domain courier)
+  (:requirements :strips :typing)
+  (:types robot location item)
+  (:predicates
+    (connected ?from ?to - location)
+    (robot-at ?r - robot ?l - location)
+    (item-at ?i - item ?l - location)
+    (carrying ?r - robot ?i - item)
+    (free ?r - robot))
+
+  (:action move
+    :parameters (?r - robot ?from ?to - location)
+    :precondition (and (robot-at ?r ?from) (connected ?from ?to))
+    :effect (and (not (robot-at ?r ?from))
+                 (robot-at ?r ?to)))
+
+  (:action pick
+    :parameters (?r - robot ?i - item ?l - location)
+    :precondition (and (robot-at ?r ?l) (item-at ?i ?l) (free ?r))
+    :effect (and (not (item-at ?i ?l)) (not (free ?r))
+                 (carrying ?r ?i)))
+
+  (:action drop
+    :parameters (?r - robot ?i - item ?l - location)
+    :precondition (and (robot-at ?r ?l) (carrying ?r ?i))
+    :effect (and (not (carrying ?r ?i))
+                 (item-at ?i ?l) (free ?r))))</code></pre>
+      </div>
+      <div class="card code-block wide">
+        <h3>Problem: courier-p01.pddl</h3>
+        <pre><code class="language-pddl">(define (problem courier-p01)
+  (:domain courier)
+  (:objects
+    r1 - robot
+    lobby corridor pharmacy lab ward-a ward-b icu dock - location
+    meds1 - item)
+  (:init
+    (connected lobby corridor) (connected corridor lobby)
+    (connected lobby pharmacy) (connected pharmacy lobby)
+    (connected lobby dock) (connected dock lobby)
+    (connected corridor lab) (connected lab corridor)
+    (connected corridor ward-a) (connected ward-a corridor)
+    (connected corridor ward-b) (connected ward-b corridor)
+    (connected ward-b icu) (connected icu ward-b)
+    (robot-at r1 dock) (free r1)
+    (item-at meds1 pharmacy))
+  (:goal (item-at meds1 ward-a)))</code></pre>
+      </div>
+      <div class="card code-block wide">
+        <h3>Plan</h3>
+        <pre class="terminal"><code>$ kairos courier-domain.pddl courier-p01.pddl
+; cost = 7
+(move r1 dock lobby)
+(move r1 lobby pharmacy)
+(pick r1 meds1 pharmacy)
+(move r1 pharmacy lobby)
+(move r1 lobby corridor)
+(move r1 corridor ward-a)
+(drop r1 meds1 ward-a)</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="slides">
+    <h2>Lecture slides</h2>
+    <p class="section-intro">Seven two-hour lectures, one per part of the book, with figures and PDDL code. Click a slide to download its PDF.</p>
+    <div class="slides-grid">
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part1.pdf" download="pddl-slides-part1.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part1.png" alt="First slide of lecture 1 of the PDDL course: Planning and models" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 1</span>
+            <p class="slide-title">Planning and models</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part2.pdf" download="pddl-slides-part2.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part2.png" alt="First slide of lecture 2 of the PDDL course: Classical planning: PDDL 1.2" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 2</span>
+            <p class="slide-title">Classical planning: PDDL 1.2</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part3.pdf" download="pddl-slides-part3.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part3.png" alt="First slide of lecture 3 of the PDDL course: Numbers: PDDL 2.1" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 3</span>
+            <p class="slide-title">Numbers: PDDL 2.1</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part4.pdf" download="pddl-slides-part4.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part4.png" alt="First slide of lecture 4 of the PDDL course: Time: PDDL 2.1 and 2.2" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 4</span>
+            <p class="slide-title">Time: PDDL 2.1 and 2.2</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part5.pdf" download="pddl-slides-part5.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part5.png" alt="First slide of lecture 5 of the PDDL course: Preferences and constraints: PDDL 3" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 5</span>
+            <p class="slide-title">Preferences and constraints: PDDL 3</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part6.pdf" download="pddl-slides-part6.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part6.png" alt="First slide of lecture 6 of the PDDL course: Hybrid systems: PDDL+" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 6</span>
+            <p class="slide-title">Hybrid systems: PDDL+</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+      <div class="slide-card">
+        <a href="pdf/en/slides/pddl-slides-part7.pdf" download="pddl-slides-part7.pdf">
+          <img class="slide-thumbnail" src="img/en/slides/pddl-slides-part7.png" alt="First slide of lecture 7 of the PDDL course: The method at work" loading="lazy" width="640" height="361" />
+          <div class="slide-info">
+            <span class="slide-label">Lecture 7</span>
+            <p class="slide-title">The method at work</p>
+            <span class="slide-dl">&#8595; Download PDF</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="planner">
+    <h2>The planner</h2>
+    <p>The examples run with <a href="https://github.com/PlanSys2/kairos" target="_blank" rel="noopener">Kairos</a>, an open-source planner that covers all the PDDL of the book: classical, numeric and temporal planning, preferences and constraints, and PDDL+. It also checks models and validates plans. Install it with <code>pip install kairos-planner</code>. The models are standard PDDL: the book says where other planners read a construct differently.</p>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is PDDL?</summary>
+      <p>PDDL, the Planning Domain Definition Language, is the standard language to describe planning problems: a domain with types, predicates and actions, and a problem with objects, an initial state and a goal. Planners read PDDL and return plans.</p>
+    </details>
+    <details>
+      <summary>Which versions of PDDL does the book cover?</summary>
+      <p>All of them: PDDL 1.2 (STRIPS, types, ADL), PDDL 2.1 (numeric fluents, metrics, durative actions), PDDL 2.2 (derived predicates, timed initial literals), PDDL 3.0 (preferences and trajectory constraints), PDDL 3.1 (object fluents, action costs) and PDDL+ (processes and events).</p>
+    </details>
+    <details>
+      <summary>Is the book free?</summary>
+      <p>Yes. The PDF of the book and the lecture slides are free to download and share under the CC BY-NC-ND 4.0 license.</p>
+    </details>
+    <details>
+      <summary>Are there PDDL examples?</summary>
+      <p>Hundreds. Every domain and problem printed in the book is a tested file, and every plan shown was produced and validated by the Kairos planner. Every chapter has exercises with solutions.</p>
+    </details>
+    <details>
+      <summary>Which planner do the examples use?</summary>
+      <p>Kairos, an open-source planner that supports all of PDDL up to PDDL+. The models are standard PDDL and run with other planners where they support the features used.</p>
+    </details>
+    <details>
+      <summary>Is there a Spanish version?</summary>
+      <p>Yes, a faithful translation: Planificación y PDDL, with its slides, on the Spanish page of this site.</p>
+    </details>
+  </section>
+
+  <section id="cite">
+    <h2>How to cite</h2>
+    <p class="section-intro">If you use this book in your research or teaching, you can cite it as:</p>
+    <div class="bibtex-wrapper">
+      <button class="bibtex-copy" type="button" onclick="copyBibtex()">Copy</button>
+      <pre class="bibtex-block" id="bibtex-entry">@book{martinrico2026pddl,
+  author    = {Mart{\'{i}}n Rico, Francisco},
+  title     = {Planning and {PDDL}: Modeling Problems for Automated
+               Planners, from {PDDL} 1.2 to {PDDL+}},
+  publisher = {Intelligent Robotics Lab, Universidad Rey Juan Carlos},
+  year      = {2026},
+  note      = {v0.1.0},
+  url       = {https://fmrico.github.io/book_pddl_web/},
+  license   = {CC BY-NC-ND 4.0}
+}</pre>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 <a class="author-link" href="https://servicios.urjc.es/pdi/ver/francisco.rico" target="_blank" rel="noopener">Francisco Martín Rico</a> &mdash;
+      Distributed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>.</p>
+    <p>Intelligent Robotics Lab — Universidad Rey Juan Carlos (URJC)</p>
+  </div>
+</footer>
+
+<script>
+function copyBibtex() {
+  const text = document.getElementById('bibtex-entry').textContent;
+  navigator.clipboard.writeText(text).then(function () {
+    const btn = document.querySelector('.bibtex-copy');
+    btn.innerHTML = '&#10003; Copied';
+    btn.classList.add('copied');
+    setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>

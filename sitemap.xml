@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmrico.github.io/book_pddl_web/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmrico.github.io/book_pddl_web/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmrico.github.io/book_pddl_web/"/>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/es/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmrico.github.io/book_pddl_web/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmrico.github.io/book_pddl_web/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmrico.github.io/book_pddl_web/"/>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/planning-and-pddl-book.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/planificacion-y-pddl-libro.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part1.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part2.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part3.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part4.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part5.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part6.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/en/slides/pddl-slides-part7.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte1.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte2.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte3.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte4.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte5.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte6.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://fmrico.github.io/book_pddl_web/pdf/es/slides/pddl-diapositivas-parte7.pdf</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+</urlset>
