@@ -16,6 +16,10 @@ LAB_URL = 'https://intelligentroboticslab.gsyc.urjc.es/'
 KAIROS_URL = 'https://github.com/PlanSys2/kairos'
 LICENSE_URL = 'https://creativecommons.org/licenses/by-nc-nd/4.0/'
 VERSION = '0.1.0'
+EXAMPLES_ZIP = 'downloads/planning-and-pddl-examples.zip'
+EXAMPLES_COUNT = {'01': 6, '02': 49, '03': 41, '04': 46, '05': 53, '06': 58, '07': 68, '08': 57,
+                  '09': 41, '10': 46, '11': 34, '12': 46, '13': 47, '14': 44, '15': 48, '16': 32,
+                  '17': 41, '18': 46, '19': 66, '20': 52}
 UPDATED = '2026-11-21'
 
 DOMAIN = """(define (domain courier)
@@ -117,6 +121,13 @@ EN = dict(
     pdf='pdf/en/planning-and-pddl-book.pdf', pdf_name='planning-and-pddl-book.pdf',
     cover='img/en/planning-and-pddl-cover.png',
     btn_book='&#8595;&nbsp; Download the book (PDF)', btn_slides='Lecture slides',
+    btn_examples='&#8595;&nbsp; PDDL examples (ZIP)',
+    examples_h='Download all the PDDL examples',
+    examples_intro=('Every domain, problem and plan of the book, more than 900 PDDL files, one '
+                    'folder per chapter, each with a test list and a script that runs them all '
+                    'with the planner. They are the same files in both editions.'),
+    examples_btn='&#8595;&nbsp; Download the PDDL examples (ZIP, 0.6&nbsp;MB)',
+    examples_cols=('Chapter', 'PDDL examples of', 'Files'),
     what_h='What is PDDL?',
     what=('<p>PDDL (Planning Domain Definition Language) is the standard language of automated '
           'planning. A PDDL model has two parts: a <strong>domain</strong>, with the types of '
@@ -204,9 +215,10 @@ EN = dict(
          'PDDL 3.1 (object fluents, action costs) and PDDL+ (processes and events).'),
         ('Is the book free?', 'Yes. The PDF of the book and the lecture slides are free to '
          'download and share under the CC BY-NC-ND 4.0 license.'),
-        ('Are there PDDL examples?', 'Hundreds. Every domain and problem printed in the book is a '
-         'tested file, and every plan shown was produced and validated by the Kairos planner. '
-         'Every chapter has exercises with solutions.'),
+        ('Are there PDDL examples?', 'Yes, more than 900 PDDL files, free to download in one ZIP '
+         'from this page. Every domain and problem printed in the book is a tested file, and '
+         'every plan shown was produced and validated by the Kairos planner. Every chapter has '
+         'exercises with solutions.'),
         ('Which planner do the examples use?', 'Kairos, an open-source planner that supports all '
          'of PDDL up to PDDL+. The models are standard PDDL and run with other planners where '
          'they support the features used.'),
@@ -252,6 +264,14 @@ ES = dict(
     pdf='../pdf/es/planificacion-y-pddl-libro.pdf', pdf_name='planificacion-y-pddl-libro.pdf',
     cover='../img/es/planificacion-y-pddl-portada.png',
     btn_book='&#8595;&nbsp; Descargar el libro (PDF)', btn_slides='Diapositivas',
+    btn_examples='&#8595;&nbsp; Ejemplos PDDL (ZIP)',
+    examples_h='Descarga todos los ejemplos PDDL',
+    examples_intro=('Todos los dominios, problemas y planes del libro, más de 900 ficheros PDDL, una '
+                    'carpeta por capítulo, cada una con su lista de pruebas y un script que los '
+                    'ejecuta todos con el planificador. Son los mismos ficheros en las dos '
+                    'ediciones.'),
+    examples_btn='&#8595;&nbsp; Descargar los ejemplos PDDL (ZIP, 0,6&nbsp;MB)',
+    examples_cols=('Capítulo', 'Ejemplos PDDL de', 'Ficheros'),
     what_h='¿Qué es PDDL?',
     what=('<p>PDDL (Planning Domain Definition Language) es el lenguaje estándar de la '
           'planificación automática. Un modelo PDDL tiene dos partes: un <strong>dominio</strong>, '
@@ -346,9 +366,10 @@ ES = dict(
          'eventos).'),
         ('¿El libro es gratuito?', 'Sí. El PDF del libro y las diapositivas se pueden descargar y '
          'compartir gratis bajo la licencia CC BY-NC-ND 4.0.'),
-        ('¿Hay ejemplos de PDDL?', 'Cientos. Cada dominio y cada problema del libro es un fichero '
-         'probado, y cada plan mostrado lo ha obtenido y validado el planificador Kairos. Cada '
-         'capítulo tiene ejercicios con soluciones.'),
+        ('¿Hay ejemplos de PDDL?', 'Sí, más de 900 ficheros PDDL, que se descargan gratis en un '
+         'ZIP desde esta página. Cada dominio y cada problema del libro es un fichero probado, y '
+         'cada plan mostrado lo ha obtenido y validado el planificador Kairos. Cada capítulo '
+         'tiene ejercicios con soluciones.'),
         ('¿Qué planificador usan los ejemplos?', 'Kairos, un planificador de código abierto que '
          'admite todo PDDL hasta PDDL+. Los modelos son PDDL estándar y funcionan con otros '
          'planificadores en la medida en que admitan las características usadas.'),
@@ -434,6 +455,10 @@ def page(L):
           </div>
         </a>
       </div>''')
+    chapters = [c for _, cs in L['parts'] for c in cs if c[0].isdigit()]
+    examples_rows = '\n'.join(
+        f'          <tr><td>{c.split(". ", 1)[0]}</td><td>{esc(c.split(". ", 1)[1])}</td>'
+        f'<td>{EXAMPLES_COUNT[c.split(". ", 1)[0].zfill(2)]}</td></tr>' for c in chapters)
     faq = '\n'.join(f'    <details>\n      <summary>{esc(q)}</summary>\n      <p>{esc(a)}</p>\n'
                     '    </details>' for q, a in L['faq'])
     et = L['example_titles']
@@ -518,6 +543,7 @@ def page(L):
       <p class="hero-desc">{L['intro']}</p>
       <div class="hero-actions">
         <a class="button" href="{L['pdf']}" download="{L['pdf_name']}">{L['btn_book']}</a>
+        <a class="button button-examples" href="{root}{EXAMPLES_ZIP}" download>{L['btn_examples']}</a>
         <a class="button button-secondary" href="#slides">{L['btn_slides']}</a>
       </div>
     </div>
@@ -573,6 +599,20 @@ def page(L):
         <h3>{et[2]}</h3>
         <pre class="terminal"><code>{esc(PLAN)}</code></pre>
       </div>
+    </div>
+  </section>
+
+  <section id="examples">
+    <h2>{L['examples_h']}</h2>
+    <p class="section-intro">{esc(L['examples_intro'])}</p>
+    <p><a class="button button-examples" href="{root}{EXAMPLES_ZIP}" download>{L['examples_btn']}</a></p>
+    <div class="table-wrap">
+      <table class="versions examples-table">
+        <thead><tr>{''.join(f'<th>{c}</th>' for c in L['examples_cols'])}</tr></thead>
+        <tbody>
+{examples_rows}
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -642,6 +682,7 @@ def sitemap():
     pdfs = ['pdf/en/planning-and-pddl-book.pdf', 'pdf/es/planificacion-y-pddl-libro.pdf']
     pdfs += [f'pdf/en/slides/pddl-slides-part{n}.pdf' for n in range(1, 8)]
     pdfs += [f'pdf/es/slides/pddl-diapositivas-parte{n}.pdf' for n in range(1, 8)]
+    pdfs.append(EXAMPLES_ZIP)
     for p in pdfs:
         urls.append(f'  <url>\n    <loc>{BASE}{p}</loc>\n    <lastmod>{UPDATED}</lastmod>\n  </url>')
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'

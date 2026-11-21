@@ -463,3 +463,6 @@ table.versions td:first-child { font-weight: 700; color: var(--primary); white-s
   .header-inner img { max-height: 44px; }
   .code-grid { grid-template-columns: 1fr; }
 }
+
+.button-examples { background: var(--primary); }
+.examples-table td:last-child, .examples-table th:last-child { text-align: right; }
