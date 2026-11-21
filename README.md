@@ -1,6 +1,6 @@
 # Planning and PDDL — website
 
-Website of the open-access textbook **Planning and PDDL: Modeling problems for automated planners, from
+Website of the open textbook **Planning and PDDL: Modeling problems for automated planners, from
 PDDL 1.2 to PDDL+** (English) / **Planificación y PDDL** (Spanish), with the PDF of the book and
 the lecture slides in both languages.
 

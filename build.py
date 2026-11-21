@@ -91,8 +91,8 @@ BIBTEX = """@book{martinrico2026pddl,
 
 EN = dict(
     lang='en', locale='en_US', path='', other_path='es/', other_lang='es',
-    title='Planning and PDDL — Open-Access PDDL Book: Tutorial, Documentation and Examples',
-    description=('Planning and PDDL is an open-access university textbook on the Planning Domain '
+    title='Planning and PDDL — Open PDDL Book: Tutorial, Documentation and Examples',
+    description=('Planning and PDDL is an open university textbook on the Planning Domain '
                  'Definition Language: PDDL 1.2, 2.1, 2.2, 3.0, 3.1 and PDDL+, with hundreds of '
                  'tested PDDL examples, a modeling method, exercises with solutions and lecture '
                  'slides. PDF in English and Spanish.'),
@@ -102,7 +102,7 @@ EN = dict(
               'planning, durative actions, preferences, processes and events, Kairos planner, '
               'PlanSys2, lecture slides'),
     switch_label='Leer en español', switch_current='English',
-    header_sub='An open-access PDDL textbook · Intelligent Robotics Lab · URJC',
+    header_sub='An open PDDL textbook · Intelligent Robotics Lab · URJC',
     book_title='Planning and PDDL',
     subtitle='Modeling problems for automated planners, from PDDL 1.2 to PDDL+',
     cover_alt='Cover of the book Planning and PDDL',
@@ -213,7 +213,7 @@ EN = dict(
          'ADL), PDDL 2.1 (numeric fluents, metrics, durative actions), PDDL 2.2 (derived '
          'predicates, timed initial literals), PDDL 3.0 (preferences and trajectory constraints), '
          'PDDL 3.1 (object fluents, action costs) and PDDL+ (processes and events).'),
-        ('Is the book open access?', 'Yes. The PDF of the book and the lecture slides can be '
+        ('Is the book open?', 'Yes. The PDF of the book and the lecture slides can be '
          'downloaded from this page and shared under the CC BY-NC-ND 4.0 license.'),
         ('Are there PDDL examples?', 'Yes, more than 900 PDDL files, in one ZIP that you can '
          'download from this page. Every domain and problem printed in the book is a tested file, and '
@@ -234,8 +234,8 @@ EN = dict(
 
 ES = dict(
     lang='es', locale='es_ES', path='es/', other_path='', other_lang='en',
-    title='Planificación y PDDL — Libro de PDDL en acceso abierto: tutorial, documentación y ejemplos',
-    description=('Planificación y PDDL es un libro universitario en acceso abierto sobre el lenguaje PDDL '
+    title='Planificación y PDDL — Libro abierto de PDDL: tutorial, documentación y ejemplos',
+    description=('Planificación y PDDL es un libro universitario abierto sobre el lenguaje PDDL '
                  '(Planning Domain Definition Language): PDDL 1.2, 2.1, 2.2, 3.0, 3.1 y PDDL+, con '
                  'cientos de ejemplos PDDL probados, un método de modelado, ejercicios resueltos y '
                  'diapositivas. PDF en español y en inglés.'),
@@ -245,7 +245,7 @@ ES = dict(
               'planificación temporal, planificación numérica, acciones durativas, preferencias, '
               'procesos y eventos, planificador Kairos, PlanSys2, diapositivas'),
     switch_label='Read in English', switch_current='Español',
-    header_sub='Un libro de PDDL en acceso abierto · Intelligent Robotics Lab · URJC',
+    header_sub='Un libro abierto de PDDL · Intelligent Robotics Lab · URJC',
     book_title='Planificación y PDDL',
     subtitle='Modelar problemas para planificadores automáticos, de PDDL 1.2 a PDDL+',
     cover_alt='Portada del libro Planificación y PDDL',
@@ -364,7 +364,7 @@ ES = dict(
          'literales iniciales temporizados), PDDL 3.0 (preferencias y restricciones de '
          'trayectoria), PDDL 3.1 (fluentes de objeto, costes de acción) y PDDL+ (procesos y '
          'eventos).'),
-        ('¿El libro está en acceso abierto?', 'Sí. El PDF del libro y las diapositivas se pueden '
+        ('¿El libro es abierto?', 'Sí. El PDF del libro y las diapositivas se pueden '
          'descargar desde esta página y compartir bajo la licencia CC BY-NC-ND 4.0.'),
         ('¿Hay ejemplos de PDDL?', 'Sí, más de 900 ficheros PDDL, que se descargan en un '
          'ZIP desde esta página. Cada dominio y cada problema del libro es un fichero probado, y '
